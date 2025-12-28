@@ -195,6 +195,9 @@ const (
 
 	// SourceHutProvider is the provider type for SourceHut
 	SourceHutProvider ProviderType = "sourcehut"
+
+	// ChurchtoolsProvider is the provider type for ChurchTools
+	ChurchtoolsProvider ProviderType = "churchtools"
 )
 
 type KeycloakOptions struct {

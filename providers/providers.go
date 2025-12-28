@@ -72,6 +72,8 @@ func NewProvider(providerConfig options.Provider) (Provider, error) {
 		return NewOIDCProvider(providerData, providerConfig.OIDCConfig), nil
 	case options.SourceHutProvider:
 		return NewSourceHutProvider(providerData), nil
+	case options.ChurchtoolsProvider:
+		return NewChurchtoolsProvider(providerData), nil
 	default:
 		return nil, fmt.Errorf("unknown provider type %q", providerConfig.Type)
 	}
@@ -189,7 +191,7 @@ func providerRequiresOIDCProviderVerifier(providerType options.ProviderType) (bo
 	switch providerType {
 	case options.BitbucketProvider, options.DigitalOceanProvider, options.FacebookProvider, options.GitHubProvider,
 		options.GoogleProvider, options.KeycloakProvider, options.LinkedInProvider, options.LoginGovProvider,
-		options.NextCloudProvider, options.SourceHutProvider:
+		options.NextCloudProvider, options.SourceHutProvider, options.ChurchtoolsProvider:
 		return false, nil
 	case options.OIDCProvider, options.ADFSProvider, options.AzureProvider, options.CidaasProvider,
 		options.GitLabProvider, options.KeycloakOIDCProvider, options.MicrosoftEntraIDProvider:
